@@ -1,0 +1,32 @@
+{
+  "name": "nci-shields",
+  "version": "0.0.1",
+  "description": "Pretty svg status shields plugin for nci",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "lib/index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fleg/nci-shields.git"
+  },
+  "keywords": [
+    "nciplugin",
+    "shields",
+    "svg"
+  ],
+  "author": "Aleksey Timchenko <flegmatik.bel@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fleg/nci-shields/issues"
+  },
+  "homepage": "https://github.com/fleg/nci-shields#readme",
+  "peerDependencies": {
+    "nci": "0.10.x"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
