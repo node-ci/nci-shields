@@ -1,6 +1,6 @@
 {
   "name": "nci-shields",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Pretty svg status shields plugin for nci",
   "main": "lib/index.js",
   "scripts": {
