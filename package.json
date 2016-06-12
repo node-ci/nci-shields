@@ -4,7 +4,8 @@
   "description": "Pretty svg status shields plugin for nci",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --bail --reporter spec test.js",
+    "coverage": "istanbul cover _mocha -- test.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,13 @@
   "peerDependencies": {
     "nci": "0.10.x"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "istanbul": "0.4.3",
+    "mocha": "2.5.3",
+    "sinon": "1.17.4"
+  }
 }
