@@ -1,4 +1,5 @@
 # nci-shields
+[![Build Status](https://travis-ci.org/fleg/nci-shields.svg?branch=master)](https://travis-ci.org/fleg/nci-shields)
 Pretty svg status shields plugin for [nci](https://github.com/node-ci/nci)
 
 ## Dependencies
