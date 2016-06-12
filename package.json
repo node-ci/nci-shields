@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/fleg/nci-shields#readme",
   "peerDependencies": {
-    "nci": "0.10.x"
+    "nci": "0.10.x",
+    "nci-express": "1.0.0"
   },
   "dependencies": {
     "underscore": "1.8.3"
