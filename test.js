@@ -16,7 +16,7 @@ describe('Shields', function() {
 		},
 		projects: {},
 		builds: {},
-		httpApp: {
+		express: {
 			get: function(route, _handler) {
 				handler = _handler;
 			}

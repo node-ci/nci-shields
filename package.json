@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --bail --reporter spec test.js",
-    "coverage": "istanbul cover _mocha -- test.js"
+    "coverage": "nyc npm run test"
   },
   "repository": {
     "type": "git",
@@ -24,15 +24,15 @@
   "homepage": "https://github.com/fleg/nci-shields#readme",
   "peerDependencies": {
     "nci": ">=1.0.1 <1.1.0",
-    "nci-express": ">=1.0.0"
+    "nci-express": ">=2.0.0"
   },
   "dependencies": {
     "underscore": "1.8.3"
   },
   "devDependencies": {
     "expect.js": "0.3.1",
-    "istanbul": "0.4.3",
-    "mocha": "2.5.3",
-    "sinon": "1.17.4"
+    "mocha": "3.2.0",
+    "nyc": "10.0.0",
+    "sinon": "1.17.6"
   }
 }
