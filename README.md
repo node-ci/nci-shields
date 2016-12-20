@@ -20,7 +20,8 @@ Add this plugin to the `plugins` section at server config
 plugins:
     - nci-shields
 ```
-after that you can get status shield at `http://localhost:3000/shields/{projectName}.svg`
+after that you can get status shield at `http://localhost:3000/shields/:projectName.svg` for project or
+`http://localhost:3000/shields/builds/:id.svg` for build
 
 ## Legal
 
