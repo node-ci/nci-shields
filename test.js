@@ -22,7 +22,7 @@ describe('Shields plugin', function() {
 					case '/shields/:projectName.svg':
 						projectHandler = handler;
 						break;
-					case '/shields/builds/:id(\d+).svg':
+					case '/shields/builds/:id(\\d+).svg':
 						buildHandler = handler;
 						break;
 					default:
