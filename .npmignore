@@ -3,3 +3,4 @@ coverage
 test.js
 .nyc_output
 .nycrc
+.travis.yml
