@@ -6,7 +6,7 @@ var _ = require('underscore'),
 	plugin = require('./lib');
 
 describe('Shields plugin', function() {
-	var projectHandler, buildHandler;
+	var projectHandler, buildHandler, projectRevHandler;
 
 	var app = {
 		lib: {
@@ -24,6 +24,9 @@ describe('Shields plugin', function() {
 						break;
 					case '/shields/builds/:id(\\d+).svg':
 						buildHandler = handler;
+						break;
+					case '/shields/:projectName/revs/:rev.svg':
+						projectRevHandler = handler;
 						break;
 					default:
 						break;
@@ -108,7 +111,7 @@ describe('Shields plugin', function() {
 				checkSvg(text);
 			});
 		});
-	})
+	});
 
 	describe('build', function() {
 		it('should be ok with unexisting build', function() {
@@ -142,4 +145,49 @@ describe('Shields plugin', function() {
 			});
 		});
 	});
+
+	describe('project rev', function() {
+		it('should be ok with unexisting project', function() {
+			app.projects.get = sinon.stub().returns(null);
+			projectRevHandler(getReq({projectName: 'unexisted'}), res);
+
+			expect(res.sendStatus.firstCall.args[0]).to.eql(404);
+		});
+
+		it('should be ok when no builds with such rev', function() {
+			app.projects.get = sinon.stub().returns({});
+			app.builds.getRecent = sinon.stub().callsArgWith(1, null, []);
+			projectRevHandler(getReq({projectName: 'ok'}), res);
+
+			checkSvg('unknown');
+		});
+
+		it('should be ok with getRecent error', function() {
+			app.projects.get = sinon.stub().returns({});
+			app.builds.getRecent = sinon.stub().callsArgWith(1, new Error());
+			projectRevHandler(getReq({projectName: 'ok'}), res);
+
+			checkSvg('unknown');
+		});
+
+		it('should be ok with getRecent non-Error instance error', function() {
+			app.projects.get = sinon.stub().returns({});
+			app.builds.getRecent = sinon.stub().callsArgWith(1, 'error');
+			projectRevHandler(getReq({projectName: 'ok'}), res);
+
+			checkSvg('unknown');
+		});
+
+		_(statusesHash).each(function(text, status) {
+			it('should be ok with `' + status + '` build', function() {
+				app.projects.get = sinon.stub().returns({});
+				app.builds.getRecent = sinon.stub()
+					.callsArgWith(1, null, [{status: status}]);
+				projectRevHandler(getReq({projectName: 'ok'}), res);
+
+				checkSvg(text);
+			});
+		});
+	});
+
 });
