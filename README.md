@@ -18,6 +18,8 @@ npm install nci-shields
 Add this plugin to the `plugins` section at server config
 ```yml
 plugins:
+    #express plugin should be included before shields plugin
+    - nci-express
     - nci-shields
 ```
 after that you can get status shields:
